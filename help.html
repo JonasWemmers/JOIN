@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help</title>
+
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="./css/help.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+
+    <script src="./js/navbar.js"></script>
+    <script src="./js/script.js"></script>
+  </head>
+  <body onload="checkForLogIn();includeHTML(); renderUsername();">
+    <div
+      class="sidebar-container"
+      w3-include-html="./assets/templates_html/sidebar_template.html"
+    ></div>
+    <div
+      class="navbar-container"
+      w3-include-html="./assets/templates_html/navbar_template.html"
+    ></div>
+
+    <div class="content-desktop">
+      <div class="inner-content" id="inner-content">
+        <div class="content-container">
+          <div class="headline-container">
+            <span class="headline-text">Help</span>
+            <a href="summary.html">
+              <img src="./assets/img/backButton.svg" />
+            </a>
+          </div>
+
+          <h2>What is Join?</h2>
+          <div class="question-text">
+            <p>
+              Join is an online platform that allows users to collaborate and
+              manage tasks effectively. It provides a convenient way for users
+              to login, add users, and even login as a guest. Once logged in,
+              users can utilize various features like creating tasks, managing a
+              task board, viewing task summaries, and maintaining a contact
+              list.
+            </p>
+          </div>
+
+          <h2>How to Use it?</h2>
+          <div class="question-text">
+            <ol class="big-numbers-list">
+              <li>Visit the Join platform website.</li>
+              <li>
+                Click on the login button to access your account or choose the
+                guest login option.
+              </li>
+              <li>
+                If you don't have an account, you can sign up by providing your
+                details and creating a new account.
+              </li>
+              <li>
+                Once logged in, you will have access to the main dashboard where
+                you can add and manage tasks.
+              </li>
+              <li>
+                Use the task board to organize your tasks into different
+                categories or stages.
+              </li>
+              <li>
+                Check the task summary section to get an overview of your
+                pending, completed, and upcoming tasks.
+              </li>
+              <li>
+                To maintain a contact list, navigate to the contact section and
+                add other users as your contacts.
+              </li>
+              <li>
+                You can also view the contacts of other users on the platform.
+              </li>
+              <li>
+                Feel free to explore other features and functionalities of Join
+                to enhance your task management experience.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

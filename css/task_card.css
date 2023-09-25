@@ -1,0 +1,52 @@
+#task-category-button-inCard {
+  display: flex;
+  height: 16px;
+  width: 70px;
+  background-color: #091931;
+  padding: 5px 15px;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+#task-title-inCard {
+  display: flex;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+#task-description-inCard {
+  color: #d1d1d1;
+  font-size: 16px;
+  margin-top: 20px;
+  height: 80px;
+  font-weight: 400;
+  overflow-y: scroll;
+}
+
+#task-avatar-inCard {
+  height: 35px;
+  width: 35px;
+  color: white;
+  margin-top: 20px;
+  display: flex;
+  border-radius: 90px;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+/* ********* Scrollbar CSS ********* */
+/* Firefox */
+
+/* Chrome, Edge, and Safari */
+#task-description-inCard::-webkit-scrollbar {
+  width: 10px;
+}
+
+#task-description-inCard::-webkit-scrollbar-thumb {
+  background-color: #a8a8a8;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}

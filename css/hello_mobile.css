@@ -1,0 +1,76 @@
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.content-mobile {
+  background-color: #f6f7f8;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-mobile span {
+  color: #2a3647;
+  font-size: 46px;
+}
+
+.content-mobile div {
+  display: flex;
+}
+
+.greeting-name {
+  color: #29abe2;
+  font-weight: 700;
+  font-size: 54px;
+}
+
+#greeting-time-hello,
+#greeting-name-mobile {
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+#greeting-time-hello {
+  animation-name: slide-from-left;
+}
+
+#greeting-name-mobile {
+  animation-name: slide-from-right;
+}
+
+@keyframes slide-from-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-from-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 420px) {
+  .content-mobile span {
+    font-size: 32px;
+  }
+
+  .greeting-name {
+    font-size: 46px;
+  }
+}

@@ -1,0 +1,147 @@
+.content-mobile {
+  display: none;
+}
+
+#legal-link {
+  /* styles for legal notice link */
+  background-color: #091931;
+}
+
+.headline-text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 120%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.content-desktop {
+  grid-column: 3/11;
+  grid-row: 2/11;
+  margin-left: 100px;
+  margin-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+}
+
+.inner-content {
+  background-color: #f6f7f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.headline-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.main-heading {
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.sub-heading {
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.legal-text {
+  width: 90%;
+}
+
+.legal-text p {
+  line-height: 20px;
+}
+
+.back-overlay-btn {
+  height: 35px;
+  width: 35px;
+  position: fixed;
+  right: 22px;
+  top: 170px;
+  cursor: pointer;
+}
+
+.content-mobile {
+  display: flex;
+  justify-content: center;
+  margin-top: 89px;
+}
+
+.small-heading-mobile {
+  font-size: 18px;
+}
+
+/* ********* Scrollbar CSS ********* */
+/* Firefox */
+.inner-content {
+  scrollbar-width: auto;
+  scrollbar-color: #2a3647 #f6f7f8;
+}
+
+/* Chrome, Edge, and Safari */
+.inner-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.inner-content::-webkit-scrollbar-track {
+  background: #f6f7f8;
+}
+
+.inner-content::-webkit-scrollbar-thumb {
+  background-color: #2a3647;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .content-container {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 756px) {
+  .content-desktop {
+    grid-column: 1/11;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .main-heading {
+    font-size: 44px;
+  }
+
+  .content-container {
+    width: 95%;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 450px) {
+  .headline-text {
+    font-size: 37px;
+  }
+}
+
+@media (max-width: 450px) {
+  .back-overlay-btn {
+    position: fixed;
+    right: 0px;
+    top: 88px;
+  }
+
+  .sub-heading {
+    font-size: 23px;
+    text-overflow: ellipsis " [..]";
+  }
+}

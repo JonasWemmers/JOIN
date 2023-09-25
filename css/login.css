@@ -1,0 +1,675 @@
+input {
+  padding-right: 35px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-top: 0 !important;
+}
+
+.d-none {
+  display: none;
+  visibility: hidden;
+}
+
+.df-w {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hover-dark:hover {
+  cursor: pointer;
+  background-color: rgb(41, 171, 226);
+}
+
+.hover-bright:hover {
+  cursor: pointer;
+  border: 2px solid rgb(41, 171, 226);
+  color: rgb(41, 171, 226);
+}
+
+.complete-page {
+  position: relative;
+  background-color: rgb(246, 247, 248);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-join-logo {
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 7;
+  background: none;
+  left: 50px;
+  top: 50px;
+  width: 90px;
+  height: 90px;
+
+  animation: showJoinLogo;
+  animation-duration: 2s;
+}
+
+.start-join-logo img {
+  height: 90px;
+}
+
+@keyframes showJoinLogo {
+  0% {
+    background: white;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  50% {
+    background: rgb(246, 247, 248);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  100% {
+    background: none;
+    left: 50px;
+    top: 50px;
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.headline {
+  margin-top: 4%;
+  padding-bottom: 4%;
+}
+
+.headline h1 {
+  font-size: 42px;
+  font-weight: 650;
+}
+
+.headline-underline {
+  width: 18%;
+  height: 3px;
+  background-color: rgb(41, 171, 226);
+}
+
+.name-field {
+  width: 65%;
+  margin-bottom: 6%;
+}
+
+.name-field input {
+  height: 40px;
+  font-size: 15px;
+}
+
+.email-field {
+  width: 65%;
+  margin-bottom: 6%;
+  display: flex;
+  position: relative;
+}
+
+.email-field input {
+  height: 40px;
+  font-size: 15px;
+  padding-right: 35px;
+}
+
+.password-field {
+  width: 65%;
+  display: flex;
+  position: relative;
+}
+
+.password-field input {
+  height: 40px;
+  font-size: 15px;
+  padding-right: 35px;
+}
+
+.signup-name-field {
+  width: 65%;
+  margin-bottom: 6%;
+  display: flex;
+  position: relative;
+}
+
+.signup-name-field input {
+  height: 40px;
+  font-size: 15px;
+  padding-right: 35px;
+}
+
+.signup-email-field {
+  width: 65%;
+  margin-bottom: 6%;
+  display: flex;
+  position: relative;
+}
+
+.signup-email-field input {
+  height: 40px;
+  font-size: 15px;
+  padding-right: 35px;
+}
+
+.signup-password-field {
+  width: 65%;
+  display: flex;
+  position: relative;
+}
+
+.signup-password-field input {
+  height: 40px;
+  font-size: 15px;
+  padding-right: 35px;
+}
+
+.button {
+  padding-left: 22px;
+  padding-right: 22px;
+  height: 36px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(42, 54, 71);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.button button {
+  padding-left: 22px;
+  padding-right: 22px;
+  height: 36px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(42, 54, 71);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.info-div {
+  width: 75%;
+  margin-bottom: 3%;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Design for Log in Area*/
+
+.login-display {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-head {
+  position: absolute;
+  top: 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-right: 6%;
+}
+
+.login-head button {
+  width: 87px;
+  height: 37px;
+  font-size: 12px;
+  background-color: rgb(42, 54, 71);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin-left: 22px;
+  border: none;
+  font-weight: 600;
+}
+
+.login-area {
+  height: 400px;
+  width: 550px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-control {
+  height: 35px;
+}
+
+.form-style {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.signup-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  align-items: center;
+}
+
+.rememberMe-forgotPassword {
+  width: 57%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 12px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.remember-me input {
+  vertical-align: middle;
+  margin: 0;
+  height: 12px;
+  width: 12px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.forgot-password a {
+  text-decoration: none;
+}
+
+.login-guestlogin {
+  display: flex;
+  flex-direction: row;
+}
+
+.guestLogin-button {
+  width: 120px;
+  height: 36px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(148, 154, 163);
+  color: rgb(42, 54, 71);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 26px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Design for Sign Up Area*/
+.signUp-display {
+  width: 100%;
+  justify-content: center;
+}
+
+.signUp-area {
+  position: relative;
+  width: 550px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.arrow img {
+  height: 18px;
+}
+
+/* Design for forgot-password Area*/
+
+.forgot-password-area {
+  position: relative;
+  width: 550px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forgot-password-email-field {
+  width: 55%;
+  margin-bottom: 4%;
+  position: relative;
+}
+
+/* Design for reset-password Area*/
+
+.reset-password-area {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reset-password-field {
+  width: 55%;
+  margin-bottom: 5%;
+  display: flex;
+  position: relative;
+}
+
+.continue-button {
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(42, 54, 71);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+}
+
+.forgot-pw-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 550px) {
+  .start-join-logo img {
+    height: 60px;
+  }
+
+  .start-join-logo {
+    top: 10px;
+    left: 10px;
+    z-index: 6;
+  }
+
+  @keyframes showJoinLogo {
+    0% {
+      background: rgb(42, 54, 71);
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    50% {
+      background: rgb(42, 54, 71);
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    100% {
+      background: none;
+      left: 10px;
+      top: 10px;
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .login-head {
+    display: flex;
+    margin-top: 962px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-right: 6%;
+    font-size: 17px;
+  }
+
+  .headline {
+    margin-top: 8%;
+    padding-bottom: 2%;
+  }
+
+  .headline-underline {
+    margin-bottom: 8%;
+  }
+
+  .email-field {
+    margin-bottom: 8%;
+  }
+
+  .login-display {
+    margin-top: 0;
+    min-height: 200px;
+  }
+
+  .login-area {
+    height: 90%;
+    width: 90%;
+    padding-bottom: 30px;
+    margin-top: 35px;
+  }
+
+  .rememberMe-forgotPassword {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    height: 80px;
+    width: 62%;
+    margin-top: 6%;
+  }
+
+  .remember-me {
+    margin-top: 10px;
+  }
+
+  .login-guestlogin {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6%;
+  }
+
+  .button {
+    margin-bottom: 20px;
+    width: 120px !important;
+    height: 43px;
+  }
+
+  .guestLogin-button {
+    width: 160px;
+    margin-left: 0;
+    height: 43px;
+  }
+
+  /* Sign up Area*/
+
+  .signUp-area {
+    height: 500px;
+    width: 90%;
+    margin-top: 50px;
+  }
+
+  .headline h1 {
+    font-size: 30px;
+  }
+
+  .signup-name-field {
+    width: 80%;
+    margin-bottom: 11%;
+  }
+
+  .signup-email-field {
+    width: 80%;
+    margin-bottom: 11%;
+  }
+
+  .signup-password-field {
+    width: 80%;
+    margin-bottom: 4%;
+  }
+
+  /* Forgot Password*/
+
+  .forgot-password-area {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    justify-content: center;
+  }
+
+  .headline {
+    text-align: center;
+  }
+
+  .headline h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .forgot-password-email-field {
+    width: 80%;
+  }
+}
+
+/* LOGIN FORM ICONS */
+
+.mail-icon {
+  position: absolute;
+  right: 11px;
+  top: 11px;
+  z-index: 5;
+  height: 17px;
+}
+
+.password-icon {
+  position: absolute;
+  right: 11px;
+  top: 11px;
+  z-index: 5;
+  height: 20px;
+}
+
+.forgot-password-icon {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  z-index: 5;
+  height: 17px;
+}
+
+.name-signup-icon {
+  position: absolute;
+  right: 11px;
+  top: 11px;
+  z-index: 5;
+  height: 17px;
+}
+
+.mail-signup-icon {
+  position: absolute;
+  right: 11px;
+  top: 12px;
+  z-index: 5;
+  height: 15px;
+}
+
+.password-signup-icon {
+  position: absolute;
+  right: 11px;
+  top: 11px;
+  z-index: 5;
+  height: 17px;
+}
+
+/* USER NOT FOUND */
+
+.user-not-found {
+  color: red;
+  font-size: 14px;
+  margin-top: 12px;
+  transition: all 225ms ease-in-out;
+}
+
+@media (max-height: 1100px) {
+  .login-head {
+    margin-top: 900px !important;
+  }
+}
+
+@media (max-height: 1000px) {
+  .login-head {
+    margin-top: 800px !important;
+  }
+}
+
+@media (max-height: 900px) {
+  .login-head {
+    margin-top: 700px !important;
+  }
+}
+
+@media (max-height: 800px) {
+  .login-head {
+    margin-top: 650px !important;
+  }
+}
+
+@media (max-height: 750px) {
+  .login-head {
+    margin-top: 600px !important;
+  }
+}
+
+@media (max-height: 700px) {
+  .login-head {
+    margin-top: 570px !important;
+  }
+}
+
+@media (max-height: 650px) {
+  .login-head {
+    margin-top: 540px !important;
+  }
+}
+
+@media (max-height: 600px) {
+  .login-head {
+    margin-top: 500px !important;
+  }
+}

@@ -1,0 +1,163 @@
+* {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  /* overflow: hidden; */
+}
+
+.sidebar-container {
+  grid-column: span 2;
+  grid-row: span 10;
+  background: rgb(42, 54, 71);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+}
+
+.sidebar-element {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-object {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar-object a {
+  display: flex;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar-object:hover {
+  background-color: #0e2951ac;
+}
+
+.sidebar-element span {
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.mini-logo {
+  height: 20px;
+  margin-left: 80px;
+}
+
+.sidebar-element-legal {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar-element-legal a {
+  display: flex;
+  color: white;
+  text-decoration: none;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar-element-legal:hover {
+  background-color: #0e2951ac;
+}
+
+.sidebar-element-legal span {
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/*Responsive Design*/
+
+@media screen and (min-width: 2000px) {
+  .sidebar-container {
+    grid-column: span 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mini-logo {
+    margin-left: 61px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .mini-logo {
+    margin-left: 42px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .mini-logo {
+    margin-left: 35px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .mini-logo {
+    margin-left: 25px;
+  }
+}
+
+@media screen and (max-width: 756px) {
+  .logo {
+    display: none;
+  }
+
+  .sidebar-element {
+    flex-direction: unset;
+  }
+
+  .sidebar-element-legal {
+    display: none;
+  }
+
+  .sidebar-object {
+    flex-direction: column;
+  }
+
+  .sidebar-object a {
+    flex-direction: column;
+  }
+
+  .mini-logo {
+    margin-left: none;
+    margin-right: 20px;
+    margin-top: 15px;
+  }
+
+  .sidebar-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    grid-column: unset;
+    grid-row: unset;
+    z-index: 100000;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .logo {
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .sidebar-container {
+    font-size: 12px;
+  }
+}

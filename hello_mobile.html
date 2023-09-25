@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join - Hello</title>
+
+    <link
+      rel="shortcut icon"
+      href="./assets/img/Join_background.png"
+      type="image/x-icon"
+    />
+
+    <!-- <link rel="stylesheet" href="/css/summary.css" />
+    <link rel="stylesheet" href="/css/sidebar.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    
+    <script src="/js/navbar.js"></script> -->
+    <script src="./js/script.js"></script>
+    <script src="./js/hello_mobile.js"></script>
+    <script src="./backend_new/storage_new.js"></script>
+
+    <link rel="stylesheet" href="./css/hello_mobile.css" />
+  </head>
+
+  <!-- includeHTML() -->
+  <body onload="checkForLogIn();renderGreetingHello()">
+    <!-- 
+    <div
+      class="sidebar-container"
+      w3-include-html="assets/templates_html/sidebar_template.html"
+    ></div>
+    <div
+      class="navbar-container"
+      w3-include-html="assets/templates_html/navbar_template.html"
+    ></div> -->
+
+    <div class="content-mobile greeting-container">
+      <div><span id="greeting-time-hello"></span></div>
+      <h1 class="greeting-name" id="greeting-name-mobile"></h1>
+    </div>
+  </body>
+</html>

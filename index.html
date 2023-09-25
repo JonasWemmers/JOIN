@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <link
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+
+    <script src="./backend_new/storage_new.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/login_new.js"></script>
+    <script src="./js/contact.js"></script>
+
+    <!-- 
+    <link rel="./stylesheet" href="./css/navbar.css" />
+
+    <script src="./js/navbar.js"></script> -->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+
+    <title>JOIN</title>
+  </head>
+
+  <body onload="init(), showRememberContact()">
+    <div class="complete-page">
+      <div id="startJoinLogo" class="start-join-logo">
+        <img src="./assets/img/Capa 2join-logo.png" alt="" />
+      </div>
+
+      <div id="signUpButton" class="login-head">
+        <span
+          class="hover-bright"
+          style="border: none"
+          onclick="openSignUp()"
+          title="Click to sign up"
+          >Not a Join user?</span
+        >
+        <button class="hover-dark" onclick="openSignUp()">Sign up</button>
+      </div>
+
+      <div id="login" class="login-display">
+        <div class="df-w">
+          <div
+            class="login-area"
+            style="box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04)"
+          >
+            <div class="headline">
+              <h1>Log in</h1>
+            </div>
+
+            <div class="headline-underline"></div>
+            <form class="form-style" onsubmit="login(); return false">
+              <div class="email-field">
+                <input
+                  id="emailLogin"
+                  required
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  aria-label="First name"
+                />
+                <img
+                  class="mail-icon bg-white"
+                  src="./assets/img/mail-icon.svg"
+                  alt=""
+                />
+              </div>
+
+              <div class="password-field">
+                <input
+                  onfocus="checkInputType('passwordLogin', 'Login')"
+                  id="passwordLogin"
+                  required
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  aria-label="First name"
+                />
+                <img
+                  id="pwIconLogin"
+                  class="password-icon bg-white"
+                  src="./assets/img/password-icon.svg"
+                  alt=""
+                />
+                <img
+                  onclick="changePwToText('passwordLogin', 'Login')"
+                  id="pwNoShowLogin"
+                  class="password-icon d-none bg-white"
+                  src="./assets/img/pw-no-show-icon.svg"
+                  style="cursor: pointer"
+                />
+                <img
+                  onclick="changeTextToPw('passwordLogin', 'Login')"
+                  id="pwShowLogin"
+                  class="password-icon d-none bg-white"
+                  src="./assets/img/pw-show-icon.svg"
+                  style="cursor: pointer"
+                />
+              </div>
+
+              <span id="userNotFound" class="user-not-found d-none"
+                >User not found. Try again</span
+              >
+
+              <div class="rememberMe-forgotPassword">
+                <div class="remember-me">
+                  <input id="checkbox" type="checkbox" checked="true" />Remember
+                  me
+                </div>
+                <div class="forgot-password" onclick="openForgotPassword()">
+                  <a href="#">Forgot my password</a>
+                </div>
+              </div>
+
+              <div class="login-guestlogin">
+                <button
+                  class="button hover-dark"
+                  style="width: 110px"
+                  type="submit"
+                >
+                  Log in
+                </button>
+                <div
+                  onclick="guestLogin()"
+                  class="guestLogin-button hover-bright"
+                >
+                  Guest Log in
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="signUp" class="signUp-display d-none">
+        <div class="df-w">
+          <div
+            class="signUp-area"
+            style="box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04)"
+          >
+            <div class="arrow" onclick="closeSignUp()">
+              <img src="./assets/img/arrow-121-32.png" />
+            </div>
+
+            <div class="headline">
+              <h1>Sign up</h1>
+            </div>
+
+            <div class="headline-underline"></div>
+            <form onsubmit="checkSignUp(); return false" class="form-style">
+              <div class="signup-input-container">
+                <div class="signup-name-field">
+                  <input
+                    id="nameSignup"
+                    required
+                    type="text"
+                    class="form-control"
+                    placeholder="Name"
+                    aria-label="First name"
+                  />
+                  <img
+                    class="name-signup-icon bg-white"
+                    src="./assets/img/name-icon.svg"
+                    alt=""
+                  />
+                </div>
+
+                <div class="signup-email-field">
+                  <input
+                    id="emailSignup"
+                    required
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    aria-label="First name"
+                  />
+                  <img
+                    class="mail-signup-icon bg-white"
+                    src="./assets/img/mail-icon.svg"
+                    alt=""
+                  />
+                </div>
+
+                <div class="signup-password-field">
+                  <input
+                    id="passwordSignup"
+                    required
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    aria-label="First name"
+                  />
+                  <img
+                    id="pwIconSignup"
+                    class="password-signup-icon bg-white"
+                    src="./assets/img/password-icon.svg"
+                    alt=""
+                  />
+                  <img
+                    onclick="changePwToText('password-signup', 'signup')"
+                    id="pw-no-show-signup"
+                    class="password-icon d-none bg-white"
+                    src="./assets/img/pw-no-show-icon.svg"
+                    style="cursor: pointer"
+                  />
+                  <img
+                    onclick="changeTextToPw('password-signup', 'signup')"
+                    id="pwShowSignup"
+                    class="password-icon d-none bg-white"
+                    src="./assets/img/pw-show-icon.svg"
+                    style="cursor: pointer"
+                  />
+                </div>
+              </div>
+
+              <span
+                id="userExists"
+                class="user-not-found d-none"
+                style="margin-bottom: -10px; margin-top: 17px"
+                >User already exists. Please
+                <b style="color: #28abe2">log in</b> or
+                <b style="text-decoration: underline">change Email</b>.</span
+              >
+
+              <div style="display: flex">
+                <button class="button mt-4" type="submit">Sign up</button>
+                <button
+                  id="goToLoginBtn"
+                  class="button mt-4 d-none"
+                  onclick="closeSignUp()"
+                  style="margin-left: 12px; background-color: #28abe2"
+                >
+                  Go to Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="forgotPassword" class="forgot-password-display d-none">
+        <div class="df-w">
+          <div class="forgot-password-area">
+            <div class="arrow" onclick="closeForgotPassword()">
+              <img src="./assets/img/arrow-121-32.png" />
+            </div>
+
+            <div class="headline">
+              <h2>I forgot my password</h2>
+            </div>
+
+            <div class="headline-underline"></div>
+
+            <div class="info-div">
+              <span>
+                Have no fear! An email will be dispatched to you shortly,
+                containing step-by-step guidelines on how to reset your
+                password.</span
+              >
+            </div>
+
+            <div class="forgot-password-email-field">
+              <form
+                onsubmit="checkIfUserExists(event)"
+                class="forgot-pw-form"
+                action="https://gruppe-557.developerakademie.net/send_mail.php"
+                method="POST"
+              >
+                <input
+                  id="forgotPwMail"
+                  required
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  placeholder="E-Mail"
+                  aria-label="First name"
+                />
+
+                <img
+                  class="forgot-password-icon bg-white"
+                  src="./assets/img/mail-icon.svg"
+                  alt=""
+                />
+
+                <span id="forgotUserNotFound" class="user-not-found d-none"
+                  >User not found. Try again!</span
+                >
+
+                <button type="submit" class="button" style="margin-top: 16px">
+                  Send mail
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

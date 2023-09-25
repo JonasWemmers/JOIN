@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+
+   <!--Von hier sind es wichtige Links für das Add Task Pop Up-->
+
+   <!-- <link rel="stylesheet" href="/css/task_form.css" /> -->
+   <!-- <link rel="stylesheet" href="css/popup.css" /> -->
+
+   <link
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+     rel="stylesheet"
+   />
+   <link
+     href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+     rel="stylesheet"
+   />
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+   <script src="./js/tasks.js"></script>
+
+    <!--bis hier sind es wichtige Links für das Add Task Pop Up-->
+    <script src="./backend_new/storage_new.js"></script>
+    <script src="./js/contact_templates.js"></script>
+    <script src="./js/contact_resize.js"></script>
+    <script src="./js/login_new.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/contact.js"></script>
+  
+  </head>
+
+<body onload="checkForLogIn(); includeHTML(); loadUsers();loadContacts(); getContacts(); renderUsername();">
+  <div
+      class="sidebar-container"
+      w3-include-html="./assets/templates_html/sidebar_template.html"
+    ></div>
+    <div
+      class="navbar-container"
+      w3-include-html="./assets/templates_html/navbar_template.html"
+    ></div>
+
+    <div class="content" id="content">
+      <div class="contact-mobile-details" id="contactMobileDetails"></div>
+    </div>
+
+      <div class="new-contact-mobile" id="newContactMobile">
+      <div class="mobile-content-btn" onclick="showCard()">
+        <span>New Contact</span>
+        <img src="./assets/img/add_contact_icon.svg" alt="" />
+      </div>
+      </div>
+
+      <div class="contact-main-container" id="contentMainContainer">
+      <div class="inner-content" id="inner-content">
+        <div class="content-container">
+          <div class="contacts-text" id="contactBox"></div>
+        </div>
+      </div>
+
+      <div class="contact-right" id="contactRight">
+        <div class="headline">
+          <div class="headline-text-border">
+            <span class="headline-text headline-text-container">Contacts</span>
+          </div>
+          <div class="headline-text-border-padding">
+            <span class="headline-subtext headline-text-container font-size-27">
+              Better with a team
+            </span>
+          </div>
+        </div>
+
+        <div class="flex-column gap-50" id="contactDetails"></div>
+
+        <div class="add-contact-btn" onclick="showCard()">
+          <span>New Contact</span>
+          <img src="./assets/img/add_contact_icon.svg" alt="" />
+        </div>
+      </div>
+      </div>
+
+      <!--AddContact PopUp -->
+
+      <div id="overlay-bg" class="overlay-bg d-none">
+      <div id="overlay">
+        <div class="overlay-left">
+          <img class="imgJoin" src="./assets/img/logo.svg" alt="" />
+          <span class="font-size-61 font-weight-700 small-responsive">Add contact</span>
+          <span class="font-size-27 small-responsive2">Tasks are better with a team!</span>
+          <div class="border-overlay"></div>
+        </div>
+        <div class="overlay-right">
+          <div class="justify-end">
+            <div class="close-btn cursor-pointer" onclick="hideCard()">
+              <svg
+                width="31"
+                height="31"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22.9614 7.65381L7.65367 22.9616"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M22.8169 23.106L7.50914 7.7982"
+                  stroke="#2A3647"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div class="form-Avatar">
+            <img src="./assets/img/avatar_img.svg" class="avatar" />
+
+            <div class="form center">
+              <form class="new-contact-form" onsubmit="createNewPseudoContact(); return false">
+                <div class="center">
+                  <input class="addName" required type="text" id="addName" placeholder="Name" />
+                </div>
+                <div class="center">
+                  <input
+                    class="addMail"
+                    required
+                    type="email"
+                    id="addMail"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="center">
+                  <input class="addTel" required type="tel" id="addTel" placeholder="Phone" pattern="[0-9]+" />
+                </div>
+                <div class="add-close-btn-container">
+                  <div class="cancel-btn" onclick="hideCard()">
+                    <span class="font-size-21">Cancel</span>
+                    <svg
+                      width="31"
+                      height="31"
+                      viewBox="0 0 31 31"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M22.9614 7.65381L7.65367 22.9616"
+                        stroke="#2A3647"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M22.8169 23.106L7.50914 7.7982"
+                        stroke="#2A3647"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <button class="create-btn" type="submit">
+                    <span class="font-weight-700 font-size-21">Create contact</span>
+                    <img src="./assets/img/add_contact_icon.svg" alt="" />
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!--Edit Contact PopUp -->
+
+      <div id="overlay-edit-bg" class="overlay-bg d-none">
+        
+      </div>      
+
+
+      <!--AddTask PopUp -->
+
+      <div id="overlayPopUpbg" class="overlay-board-bg d-none">
+              
+        <div class="overlayBoardBg">
+          <div class="justify-end">
+            <div class="close-btn cursor-pointer" onclick="hideAddTaskPopUp()">
+              <svg
+              width="31"
+              height="31"
+              viewBox="0 0 31 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22.9614 7.65381L7.65367 22.9616"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.8169 23.106L7.50914 7.7982"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            </div>
+          </div>
+          <div class="task-card task-card-scroll">
+            <div class="margin-bottom-60">
+              <span class="headline-text">Add Task</span>
+            </div>
+          <div class="flex-row align-center justify-between">
+            <div class="form center">
+              <form class="column-container" onsubmit="" ; return false>
+                <div class="column-left">
+                  <label>Title</label>
+        
+                  <input type="text" id="titleTaskPopUp" placeholder="Enter a title" required />
+        
+                  <label>Description</label>
+        
+                  <textarea
+                    id="description"
+                    placeholder="Enter a description"
+                  ></textarea>
+        
+                  <label>Category</label>
+        
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    required
+                    onchange="getSelectedOption()"
+                  >
+                    <option selected="">Select task category</option>
+                    <option value="1">New category</option>
+                    <option value="2">Sales</option>
+                    <option value="3">Backoffice</option>
+                  </select>
+        
+                  <div id="inputField" style="display: none;">
+                    <input type="text" class="form-control" placeholder="Enter new category" id="textInput">
+                    <div class="inputColorField" id="colorPicker">
+                      <div onclick="pickedColor(`color1`)" id="color1" class="color-option" style="background-color: #FF0000;"></div> <!-- Red -->
+                      <div onclick="pickedColor(`color2`)" id="color2" class="color-option" style="background-color: #00FF00;"></div> <!-- Green -->
+                      <div onclick="pickedColor(`color3`)" id="color3" class="color-option" style="background-color: #0000FF;"></div> <!-- Blue -->
+                      <div onclick="pickedColor(`color4`)" id="color4" class="color-option" style="background-color: #FFFF00;"></div> <!-- Yellow -->
+                      <div onclick="pickedColor(`color5`)" id="color5" class="color-option" style="background-color: #FF00FF;"></div> <!-- Magenta -->
+                    </div>
+                  </div>
+        
+                  <label>Assigned to</label>
+        
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    required
+                    onchange="getSelectedAssignment()"
+                    id="assignMenu"
+                  >
+                    <option selected="">Select task category</option>
+                    <option value="1">New category</option>
+                    <option value="2">Sales</option>
+                    <option value="3">Backoffice</option>
+                  </select>
+                </div>
+                <div class="border-margin"></div>
+        
+                <div class="column-right">
+                  <label>Due Date</label>
+        
+                  <input
+                    min="2023-05-08"
+                    id="datePicker"
+                    type="date"
+                    placeholder="Enter a description"
+                    required
+                  /><br /><br />
+        
+                  <label>Prio</label>
+        
+                  <div id="prio" class="prio">
+                    <div class="prio-btn" id="prioUrgent" onclick="TaskButtonUrgent()">
+                      Urgent
+                      <img id="imgUrgent" src="./assets/img/icon_up.png" alt="" />
+                    </div>
+                    <div class="prio-btn" id="prioMedium" onclick="TaskButtonMedium()">
+                      Medium
+                      <img id="imgMedium" src="./assets/img/icon_medium.png" alt="" />
+                    </div>
+                    <div class="prio-btn" id="prioLow" onclick="TaskButtonLow()">
+                      Low
+                      <img id="imgLow" src="./assets/img/icon_down.png" alt="" />
+                    </div>
+                  </div>
+        
+                  <label class="subtask">Subtasks</label>
+                  <div class="subtask-container">
+                    <input type="text" id="subtask-input-content" placeholder="Enter Subtask..."/>
+        
+                    <div id="subtaskOninput" style="display: flex">
+                      <img src="./assets/img/X.png" id="clearSubtaskInput" onclick="subTaskDelete()" />
+                      <div class="border-subtask"></div>
+                      <img
+                        src="./assets/img/icon_check.svg"
+                        onclick="subTaskAddToJson()"
+                        id="finishEditingSubtask"
+                      />
+                    </div>
+                  </div>
+        
+                  <div id="subtaskContent"></div>
+        
+                  <div class="action-button-container">
+                    <img
+                      id="clearTask"
+                      onclick="hideAddTaskPopUp()"
+                      src="./assets/img/cancel-task.svg"
+                    />
+                    <button id="addTask" class="add-task-btn-board" type="submit">
+                      Create Task
+                    </button>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+             <!--Hier wird ein Board PopUp erstellt-->
+
+             <div id="overlayPopUpbg" class="overlay-board-bg d-none">
+              
+              <div class="overlayBoardBg">
+                <div class="justify-end">
+                  <div class="close-btn cursor-pointer" onclick="hideEditCard()">
+                  </div>
+                </div>
+                <div class="task-card task-card-scroll">
+                  <div class="margin-bottom-60">
+                    <span class="headline-text">Add Task</span>
+                  </div>
+                <div class="flex-row align-center justify-between">
+                  <div class="form center">
+                    <form class="column-container" onsubmit="" ; return false>
+                      <div class="column-left">
+                        <label>Title</label>
+              
+                        <input type="text" id="titleTaskPopUp" placeholder="Enter a title" required />
+              
+                        <label>Description</label>
+              
+                        <textarea
+                          id="description"
+                          placeholder="Enter a description"
+                        ></textarea>
+              
+                        <label>Category</label>
+              
+                        <select
+                          class="form-select"
+                          aria-label="Default select example"
+                          required
+                          onchange="getSelectedOption()"
+                        >
+                          <option selected="">Select task category</option>
+                          <option value="1">New category</option>
+                          <option value="2">Sales</option>
+                          <option value="3">Backoffice</option>
+                        </select>
+              
+                        <div id="inputField" style="display: none;">
+                          <input type="text" class="form-control" placeholder="Enter new category" id="textInput">
+                          <div class="inputColorField" id="colorPicker">
+                            <div onclick="pickedColor(`color1`)" id="color1" class="color-option" style="background-color: #FF0000;"></div> <!-- Red -->
+                            <div onclick="pickedColor(`color2`)" id="color2" class="color-option" style="background-color: #00FF00;"></div> <!-- Green -->
+                            <div onclick="pickedColor(`color3`)" id="color3" class="color-option" style="background-color: #0000FF;"></div> <!-- Blue -->
+                            <div onclick="pickedColor(`color4`)" id="color4" class="color-option" style="background-color: #FFFF00;"></div> <!-- Yellow -->
+                            <div onclick="pickedColor(`color5`)" id="color5" class="color-option" style="background-color: #FF00FF;"></div> <!-- Magenta -->
+                          </div>
+                        </div>
+              
+                        <label>Assigned to</label>
+              
+                        <select
+                          class="form-select"
+                          aria-label="Default select example"
+                          required
+                          onchange="getSelectedAssignment()"
+                          id="assignMenu"
+                        >
+                          <option selected="">Select task category</option>
+                          <option value="1">New category</option>
+                          <option value="2">Sales</option>
+                          <option value="3">Backoffice</option>
+                        </select>
+                      </div>
+                      <div class="border-margin"></div>
+              
+                      <div class="column-right">
+                        <label>Due Date</label>
+              
+                        <input
+                          min="2023-05-08"
+                          id="datePicker"
+                          type="date"
+                          placeholder="Enter a description"
+                          required
+                        /><br /><br />
+              
+                        <label>Prio</label>
+              
+                        <div id="prio" class="prio">
+                          <div class="prio-btn" id="prioUrgent" onclick="TaskButtonUrgent()">
+                            Urgent
+                            <img id="imgUrgent" src="./assets/img/icon_up.png" alt="" />
+                          </div>
+                          <div class="prio-btn" id="prioMedium" onclick="TaskButtonMedium()">
+                            Medium
+                            <img id="imgMedium" src="./assets/img/icon_medium.png" alt="" />
+                          </div>
+                          <div class="prio-btn" id="prioLow" onclick="TaskButtonLow()">
+                            Low
+                            <img id="imgLow" src="./assets/img/icon_down.png" alt="" />
+                          </div>
+                        </div>
+              
+                        <label class="subtask">Subtasks</label>
+                        <div class="subtask-container">
+                          <input type="text" id="subtask-input-content" />
+              
+                          <div id="subtaskOninput" style="display: flex">
+                            <img src="./assets/img/X.png" id="clearSubtaskInput" />
+                            <div class="border-subtask"></div>
+                            <img
+                              src="./assets/img/icon_check.svg"
+                              onclick="subTaskAddToJson()"
+                              id="finishEditingSubtask"
+                            />
+                          </div>
+                        </div>
+              
+                        <div id="subtaskContent"></div>
+              
+                        <div class="action-button-container">
+                          <img
+                            id="clearTask"
+                            onclick="clearTaskForm()"
+                            src="./assets/img/cancel-task.svg"
+                          />
+                          <button id="addTask" class="add-task-btn-board" type="submit">
+                            Create Task
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                    
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+  </body>
+</html>
+
+
+
+
+

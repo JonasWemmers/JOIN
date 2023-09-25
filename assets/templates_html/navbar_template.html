@@ -1,0 +1,31 @@
+<div>
+  <div>
+    <h3 class="header-headline-container">Kanban Project Management Tool</h3>
+    <img class="mobile-nav-logo" src="./assets/img/joinlogoBlack.svg" alt="" />
+  </div>
+</div>
+
+<div class="header-right">
+  <a href="./help.html" style="height: 31px;">
+    <img src="./assets/img/questionmark_topper.svg" alt="Question mark" />
+  </a>
+  <div class="profile-container">
+    <span
+      class="nav-profil"
+      alt="Profile"
+      id="userName"
+      onclick="toggleLogout()"
+      >User</span
+    >
+  </div>
+</div>
+<div class="logout-button d-none" id="logout-button">
+  <button onclick="logout()">Log out</button>
+</div>
+<div class="options-mobile d-none" id="options-mobile" onclick="toggleLogout()">
+  <div class="center-mobile">
+    <a href="./help.html">Help</a>
+    <a href="./legal.html">Legal Notice</a>
+    <a href="./index.html">Log out</a>
+  </div>
+</div>

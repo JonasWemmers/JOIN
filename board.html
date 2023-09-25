@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board</title>
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="./css/board.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/board-edit-popup.css" />
+    <link rel="stylesheet" href="./css/board-task-popup.css" />
+
+    <script src="./js/navbar.js"></script>
+    <script src="./backend_new/storage_new.js"></script>
+    <script src="./js/board_template.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/tasks.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/board_drag_drop.js"></script>
+  </head>
+
+  <body onload="checkForLogIn();includeHTML();initBoard()">
+    <div class="overlay-bg d-none" id="overlay"></div>
+    <div
+      class="sidebar-container"
+      w3-include-html="./assets/templates_html/sidebar_template.html"
+    ></div>
+    <div
+      class="navbar-container"
+      w3-include-html="./assets/templates_html/navbar_template.html"
+    ></div>
+
+    <div id="loadingOverlay" class="d-none">
+      <img src="assets/img/loading-gif.gif" alt="">
+    </div>
+
+    <div class="board-main-container inner-content">
+      <span id="headline-mobile" class="headline-text-mobile"
+        >Kanban Project Management Tool</span
+      >
+      <div class="headline-container">
+        <div class="headline-left">
+          <span class="headline-text headline-text-container">Board</span>
+          <div
+            onclick="redirectToAddTask()"
+            id="add-task-btn-board-mobile"
+            class="add-task-btn-board-mobile"
+          >
+            <button>
+              <img src="./assets/img/plus-icon.svg" alt="" />
+            </button>
+          </div>
+        </div>
+        <div class="board-headline-right">
+          <div class="subtask-container">
+            <input
+              id="search-input"
+              oninput="searchForTaskByInput()"
+              placeholder="Search..."
+            />
+
+            <div id="search-input-images" style="display: flex">
+              <div class="border-subtask"></div>
+              <img
+                src="./assets/img/search-icon.png"
+                id="finishEditingSubtask"
+              />
+            </div>
+          </div>
+
+          <div
+            onclick="redirectToAddTask()"
+            id="add-task-btn-board"
+            class="add-task-btn-board"
+          >
+            <button>Add Task</button>
+            <img src="./assets/img/plus-icon.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="board-content">
+        <div class="board-content-element" id="toDoContainer">
+          <div class="task-type">
+            <span>To Do</span>
+            <svg
+              onclick="redirectToAddTask('toDo')"
+              class="svg"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div id="toDoTasks"></div>
+          <div
+            class="drop-area"
+            id="toDo"
+            ondrop="moveTo('toDo'); hideHoverEffect(event)"
+            ondragover="allowDrop(event)"
+            ondragend="getBorderRemoveFunctions();"
+            ondragenter="showHoverEffect(event);"
+            ondragleave="hideHoverEffect(event)"
+          >
+            <!--DropArea TO DO-->
+          </div>
+        </div>
+
+        <div class="board-content-element" id="progressContainer">
+          <div class="task-type">
+            <span>In progress</span>
+            <svg
+              onclick="redirectToAddTask('inProgress')"
+              class="svg"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div id="inProgressTasks"></div>
+          <div
+            class="drop-area"
+            id="inProgress"
+            ondrop="moveTo('inProgress'); hideHoverEffect(event)"
+            ondragover="allowDrop(event)"
+            ondragend="getBorderRemoveFunctions();"
+            ondragenter="showHoverEffect(event);"
+            ondragleave="hideHoverEffect(event)"
+          >
+            <!--DropArea IN PROGRESS-->
+          </div>
+        </div>
+        <div class="board-content-element" id="feedbackContainer">
+          <div class="task-type">
+            <span>Awaiting feedback</span>
+            <svg
+              onclick="redirectToAddTask('feedback')"
+              class="svg"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div id="feedbackTasks"></div>
+          <div
+            class="drop-area"
+            id="feedback"
+            ondrop="moveTo('feedback'); hideHoverEffect(event)"
+            ondragover="allowDrop(event)"
+            ondragend="getBorderRemoveFunctions();"
+            ondragenter="showHoverEffect(event);"
+            ondragleave="hideHoverEffect(event)"
+          >
+            <!--DropArea FEEDBACK-->
+          </div>
+        </div>
+        <div class="board-content-element" id="doneContainer">
+          <div class="task-type">
+            <span>Done</span>
+            <svg
+              onclick="redirectToAddTask('done')"
+              class="svg"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div id="doneTasks"></div>
+          <div
+            class="drop-area"
+            id="done"
+            ondrop="moveTo('done'); hideHoverEffect(event)"
+            ondragover="allowDrop(event)"
+            ondragend="getBorderRemoveFunctions();"
+            ondragenter="showHoverEffect(event);"
+            ondragleave="hideHoverEffect(event)"
+          >
+            <!--DropArea DONE-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

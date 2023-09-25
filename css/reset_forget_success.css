@@ -1,0 +1,53 @@
+/* MOBILE VERSION */
+
+.join-logo img {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    height: 90px;
+}
+
+.t-9 {
+    top: 9px !important;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+
+@media (max-width: 650px) {
+    .reset-password-area {
+        width: 500px;
+    }
+
+    .reset-password-field {
+        width: 75%;
+
+
+    }
+}
+
+@media (max-width: 550px) {
+    .reset-password-area {
+        width: 350px;
+    }
+
+    .reset-password-field {
+        width: 85%;
+
+
+    }
+    
+
+}
+
+@media (max-width: 375px) {
+    .reset-password-area {
+        width: 280px;
+    }
+
+   
+}
+
+

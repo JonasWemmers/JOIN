@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary</title>
+
+    <script src="./js/navbar.js" defer></script>
+
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="./css/summary.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+
+    <script src="./backend_new/storage_new.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/tasks.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/summary.js"></script>
+    
+  </head>
+
+  <body onload="checkForLogIn();includeHTML(), initSummary()">
+    <div
+      class="sidebar-container"
+      w3-include-html="assets/templates_html/sidebar_template.html"
+    ></div>
+    <div
+      class="navbar-container"
+      w3-include-html="./assets/templates_html/navbar_template.html"
+    ></div>
+
+    <div class="summary-main-container">
+      <!-- Headline -->
+
+      <div class="headline">
+        <div class="headline-text-border">
+          <span class="headline-text headline-text-container">Summary</span>
+        </div>
+        <div class="headline-text-border-padding">
+          <span class="headline-subtext headline-text-container">
+            Everything in a nutshell
+          </span>
+        </div>
+      </div>
+
+      <div class="summary-content">
+        <div class="summary-content-left">
+          <div class="row">
+            <div onclick="redirectToBoard()" class="card">
+              <div class="card-body">
+                <span id="counterAll" class="card-counter"></span>
+                <span class="card-subtitle">Tasks <br />in board</span>
+              </div>
+            </div>
+
+            <div onclick="redirectToBoard()" class="card">
+              <div class="card-body">
+                <span id="counterInProgress" class="card-counter"></span>
+                <span class="card-subtitle">Tasks <br />in progress</span>
+              </div>
+            </div>
+
+            <div onclick="redirectToBoard()" class="card">
+              <div class="card-body">
+                <span id="counterFeedback" class="card-counter"></span>
+                <span class="card-subtitle">Awaiting feedback</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div onclick="redirectToBoard()" class="horizontal-card-body">
+              <div>
+                <div class="flex-urgent">
+                  <img src="assets/img/urgentSymbol.svg" alt="" />
+                  <div class="flex-column-urgent">
+                    <span id="urgent-counter" class="urgent-counter"></span>
+                    <span>Urgent</span>
+                  </div>
+                </div>
+              </div>
+              <div class="border"></div>
+              <div class="flex-column-date">
+                <span class="urgent-date-span" id="currentDate"></span>
+                <span>Upcoming deadline</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              onclick="redirectToBoard()"
+              class="bottom-card-body"
+              id="bottomCard1"
+            >
+              <div class="flex-urgent">
+                <img src="assets/img/icon_pen.svg" alt="" id="penIcon" />
+                <div class="flex-column-urgent">
+                  <span id="openToDo" class="urgent-counter"></span>
+                  <span>To Do</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              onclick="redirectToBoard()"
+              class="bottom-card-body"
+              id="bottomCard2"
+            >
+              <div class="flex-urgent">
+                <img src="assets/img/icon_check.svg" alt="" id="checkIcon" />
+                <div class="flex-column-urgent">
+                  <span id="doneToDos" class="urgent-counter"></span>
+                  <span>Done</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Greetings -->
+        <div class="summary-content-right">
+          <span class="headline-text">
+            <span id="greeting_sentence"></span>
+            <span
+              class="greeting_name"
+              id="greeting_name"
+              style="color: rgb(41, 171, 226)"
+            ></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body onload="init()">
+
+  <form onsubmit="register(); return false;">
+    <input required type="email" id="email">
+    <input required type="password" id="password">
+    <button id="registerBtn">Registrieren</button>
+  </form>
+
+  <div id="registeredUsers"></div>
+
+  <script src="./backend_new/storage_new.js"></script>
+  <script src="./backend_new/register_new.js"></script>
+</body>
+
+</html>

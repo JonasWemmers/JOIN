@@ -1,0 +1,163 @@
+.headline-text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 120%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.content-desktop {
+  grid-column: 3/11;
+  grid-row: 2/11;
+  margin-left: 100px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+}
+
+.inner-content {
+  background-color: #f6f7f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.headline-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.main-heading {
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.sub-heading {
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.question-text {
+  width: 90%;
+  text-align: justify;
+}
+
+.question-text p {
+  line-height: 20px;
+}
+
+.big-numbers-list {
+  counter-reset: item;
+  list-style: none;
+}
+
+.big-numbers-list li:before {
+  content: counter(item);
+  counter-increment: item;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #091931;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
+}
+
+.back-overlay-btn {
+  height: 35px;
+  width: 35px;
+  position: fixed;
+  right: 22px;
+  top: 170px;
+  cursor: pointer;
+}
+
+.small-heading-mobile {
+  font-size: 18px;
+}
+
+/* ********* Scrollbar CSS ********* */
+/* Firefox */
+.inner-content {
+  scrollbar-width: auto;
+  scrollbar-color: #2a3647 #f6f7f8;
+}
+
+/* Chrome, Edge, and Safari */
+.inner-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.inner-content::-webkit-scrollbar-track {
+  background: #f6f7f8;
+}
+
+.inner-content::-webkit-scrollbar-thumb {
+  background-color: #2a3647;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .content-container {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 756px) {
+  .content-desktop {
+    margin-left: 0;
+    grid-column: 2/11;
+  }
+
+  .big-numbers-list {
+    counter-reset: item;
+    list-style: none;
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .main-heading {
+    font-size: 44px;
+  }
+
+  .content-container {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-heading {
+    font-size: 37px;
+  }
+
+  .back-overlay-btn {
+    position: fixed;
+    right: 0px;
+    top: 88px;
+  }
+
+  .sub-heading {
+    font-size: 23px;
+    text-overflow: ellipsis " [..]";
+  }
+}
